@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import cls from './SideBarItem.module.scss'
+import ArrowIcon from '../../assets/Icons/arrow.svg';
 
 interface SideBarItemProps {
     items: SidebarItemType;
@@ -19,8 +20,12 @@ export const SideBarItem = (props: SideBarItemProps) => {
 
     return <div className={cls.sideBarItem}>
             <Link to={items.to} className={cls.link}>
+            <span className={cls.iconContainer}>
                 <img src={items.icon} alt={items.text} />
                 <span>{items.text}</span>
+            </span>
+                
+                <img src={ArrowIcon} alt="arrow" />
         </Link>
     </div>;
 }

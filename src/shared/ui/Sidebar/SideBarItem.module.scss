@@ -14,10 +14,16 @@
     .link {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
         gap: 10px;
         text-decoration: none;
         color: #000000;
+    }
+    .iconContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
     }
 }

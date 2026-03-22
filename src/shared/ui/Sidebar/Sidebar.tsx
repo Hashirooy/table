@@ -11,21 +11,21 @@ export const Sidebar = (_props: SidebarProps) => {
   const items = [
     {
       text: 'Tables',
-      icon: 'https://via.placeholder.com/150',
+      icon: 'src/shared/assets/Icons/tables.svg',
       to: '/tables',
       path: '/tables',
       authOnly: false,
     },
     {
       text: 'Forms',
-      icon: 'https://via.placeholder.com/150',
+      icon: 'src/shared/assets/Icons/forms.svg',
       to: '/forms',
       path: '/forms',
       authOnly: false,
     },
     {
       text: 'Tasks',
-      icon: 'https://via.placeholder.com/150',
+      icon: 'src/shared/assets/Icons/tasks.svg',
       to: '/tsks',
       path: '/tasks',
       authOnly: false,
