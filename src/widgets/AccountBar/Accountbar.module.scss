@@ -1,0 +1,22 @@
+.accountBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.arrow {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.arrow.closed {
+    transform: rotate(0deg);
+}

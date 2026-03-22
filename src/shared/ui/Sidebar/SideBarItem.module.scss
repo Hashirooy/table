@@ -1,0 +1,23 @@
+.sideBarItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #e4e7ec;
+    }
+
+    .link {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #000000;
+    }
+}
