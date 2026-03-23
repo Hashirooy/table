@@ -14,14 +14,18 @@ export const Layout = () => {
             </div>
             <Sidebar/>
         </div>
-        <main className={styles.main}>
-            <header className={styles.header}><Header></Header></header>
+        <div className={styles.main}>
+            <header className={styles.header}>
+                <Header></Header>
+            </header>
+            <MainContent>
+                <div className={styles.mainContentTitle}>
+                    <h1>Data Tables</h1>
+                </div>
+                <Table/>
+            </MainContent>
         
-                <MainContent>
-                    <Table/>
-                </MainContent>
-        
-        </main>
+        </div>
     </div>
     </>)
 }

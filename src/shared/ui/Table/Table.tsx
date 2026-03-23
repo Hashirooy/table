@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
 import cls from './Table.module.scss';
 
 export interface TableColumn {
@@ -18,12 +21,20 @@ export interface TableRow {
 
 
 export const Table = () => {
+    const [search, setSearch] = useState('');
     return (
         <div className={cls.tableContainer}>
             <div className={cls.tableTitle}>
                 <h3>Table</h3>
             </div>
-            <div className={cls.tableOptions} />
+            <div className={cls.tableOptions}>
+                <div className={cls.tableOptionsLeft}>
+                    Show<Button onClick={() => {}} size="medium" theme="primary" circle={false}>?</Button> entries
+                </div>
+                <div className={cls.tableOptionsRight}>
+                    <Input type="text" placeholder="Search" value={search} onChange={setSearch} />
+                </div>
+            </div>
             <table className={cls.table}>
                 <thead className={cls.tableHead}>
                     <tr className={cls.tableRow}>
