@@ -1,4 +1,4 @@
-import { Layout } from '../shared/ui/Layout/Layout'
+import { Layout } from '../pages/Layout/Layout'
 
 
 function App() {

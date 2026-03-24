@@ -2,8 +2,8 @@ import cls from './Button.module.scss'
 import { classNames, type Mods } from '../../helper/ClassNames/ClassNames';
 
 interface ButtonProps {
-    children: React.ReactNode;
-    onClick: () => void;
+    children?: React.ReactNode;
+    onClick?: () => void;
     disabled?: boolean;
     type?: ButtonType;
     size?: ButtonSize;
@@ -28,7 +28,7 @@ export const Button = (props: ButtonProps) => {
 
     const onClickHandler = () => {
         if (disabled) return;
-        onClick();
+        onClick?.();
     }
 
     return <button className={classNames(cls.button, mods, [])} onClick={onClickHandler} disabled={disabled} type={type ?? 'button'}>{children}</button>;

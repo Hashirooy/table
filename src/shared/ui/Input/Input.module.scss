@@ -1,14 +1,14 @@
 .input {
-    width: 400px;
-    height: 100%;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    &:focus {
-        outline: none;
-        border-color: #4089f5;
-        box-shadow: 0 0 5px 0 rgba(12, 74, 243, 0.959);
-    }
+  width: 400px;
+  height: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  &:focus {
+    outline: none;
+    border-color: #4089f5;
+    box-shadow: 0 0 5px 0 rgba(12, 74, 243, 0.959);
+  }
 }

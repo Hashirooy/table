@@ -21,6 +21,8 @@ export interface TableRow {
 
 
 export const Table = () => {
+    // fetch
+
     const [search, setSearch] = useState('');
     return (
         <div className={cls.tableContainer}>
@@ -29,7 +31,7 @@ export const Table = () => {
             </div>
             <div className={cls.tableOptions}>
                 <div className={cls.tableOptionsLeft}>
-                    Show<Button onClick={() => {}} size="medium" theme="primary" circle={false}>?</Button> entries
+                    Show<Button size="medium" theme="primary" circle={false}>?</Button> entries
                 </div>
                 <div className={cls.tableOptionsRight}>
                     <Input type="text" placeholder="Search" value={search} onChange={setSearch} />
