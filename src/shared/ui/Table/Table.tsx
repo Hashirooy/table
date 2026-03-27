@@ -1,4 +1,8 @@
+import { useState } from 'react';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
 import cls from './Table.module.scss';
+import { Select } from '../Select/Select';
 
 export interface TableColumn {
     id: number;
@@ -18,12 +22,21 @@ export interface TableRow {
 
 
 export const Table = () => {
+    const [search, setSearch] = useState('');
+    const [showEntries, setShowEntries] = useState('10');
     return (
         <div className={cls.tableContainer}>
             <div className={cls.tableTitle}>
                 <h3>Table</h3>
             </div>
-            <div className={cls.tableOptions} />
+            <div className={cls.tableOptions}>
+                <div className={cls.tableOptionsLeft}>
+                    Show<Select options={[{ value: '10', content: '10' }, { value: '20', content: '20' }, { value: '30', content: '30' }]} value={showEntries} onChange={setShowEntries} /> entries
+                </div>
+                <div className={cls.tableOptionsRight}>
+                    <Input type="text" placeholder="Search" value={search} onChange={setSearch} />
+                </div>
+            </div>
             <table className={cls.table}>
                 <thead className={cls.tableHead}>
                     <tr className={cls.tableRow}>

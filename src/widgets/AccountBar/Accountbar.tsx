@@ -1,6 +1,7 @@
 import cls from './AccountBar.module.scss'
 import ArrowIcon from '../../shared/assets/Icons/arrow.svg';
 import { useState } from 'react';
+import { ArrowDropdown } from '../../shared/ui/ArrowDropdown/ArrowDropdown';
 
 interface AccountBarProps {
     text: string;
@@ -8,26 +9,12 @@ interface AccountBarProps {
 }
 
 export const AccountBar = (props: AccountBarProps) => {
-    const [isOpen, setIsOpen] = useState(false);
     const { text, avatar } = props;
     return (
         <div className={cls.accountBar}>
             <img className={cls.avatar} src={avatar} alt="avatar" />
             <p>{text}</p>
-            <img
-                src={ArrowIcon}
-                className={cls.arrow + ' ' + (isOpen ? cls.open : cls.closed)}
-                alt="arrow"
-                onClick={() => setIsOpen((v) => !v)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        setIsOpen((v) => !v);
-                    }
-                }}
-            />
+            <ArrowDropdown items={[{ text: 'Logout', href: '/logout' }, { text: 'Profile', href: '/profile' }, { text: 'Settings', href: '/settings' }]} />
         </div>
     )
 }
