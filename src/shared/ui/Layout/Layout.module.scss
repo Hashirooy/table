@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-
+    flex-direction: column;
 }
 
 .main{
@@ -26,10 +26,33 @@
 .sidebarContainer {
     display: flex;
     width: 300px;
+    flex-shrink: 0;
     flex-direction: column;
     background-color: #ffffff;
     border-right: 1px solid #e0e0e0;
     padding:0 20px;
+}
+
+.sidebarBackdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(15, 23, 42, 0.4);
+    cursor: pointer;
+}
+
+.sidebarContainerDrawer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    height: 100vh;
+    max-height: 100dvh;
+    overflow: auto;
+    box-shadow: 4px 0 24px rgba(15, 23, 42, 0.12);
 }
 
 .Logo {
@@ -47,3 +70,22 @@
         font-weight: 600;
     }
 }
+
+.headerActions{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    flex-direction: row;
+}
+
+.headerActionsContent{
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+

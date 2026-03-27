@@ -8,6 +8,8 @@ interface SidebarProps {
 
 export const Sidebar = (_props: SidebarProps) => {
 
+ 
+
   const items = [
     {
       text: 'Tables',
