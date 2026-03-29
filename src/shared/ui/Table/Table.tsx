@@ -3,6 +3,7 @@ import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import cls from './Table.module.scss';
 import { Select } from '../Select/Select';
+import type { User } from '../../../entities/User/model/types/UserSchema';
 
 export interface TableColumn {
     id: number;
@@ -21,7 +22,12 @@ export interface TableRow {
 }
 
 
-export const Table = () => {
+interface TableProps {
+    users: User[];
+    tableType: 'users' | 'tasks';
+}
+
+export const Table = ({ users, tableType }: TableProps) => {
     const [search, setSearch] = useState('');
     const [showEntries, setShowEntries] = useState('10');
     return (
@@ -48,14 +54,14 @@ export const Table = () => {
                     </tr>
                 </thead>
                 <tbody className={cls.tableBody}>
-                    {tableBody.map((row) => (
+                    {users.map((row) => (
                         <tr key={row.id} className={cls.tableRow}>
                             <td className={cls.tableCell}>{row.name}</td>
-                            <td className={cls.tableCell}>{row.position}</td>
-                            <td className={cls.tableCell}>{row.office}</td>
-                            <td className={cls.tableCell}>{row.age}</td>
-                            <td className={cls.tableCell}>{row.startDate}</td>
-                            <td className={cls.tableCell}>{row.salary}</td>
+                            <td className={cls.tableCell}>{row.email}</td>
+                            <td className={cls.tableCell}>{row.department}</td>
+                            <td className={cls.tableCell}>{row.role}</td>
+                            <td className={cls.tableCell}>{row.date}</td>
+                            <td className={cls.tableCell}>{row.status}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -74,59 +80,3 @@ export const tableColumns: TableColumn[] = [
     { id: 6, name: 'Salary', description: 'Table 6 description' },
 ];
 
-export const tableBody: TableRow[] = [
-    {
-        id: 1,
-        name: 'John Doe',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-    {
-        id: 2,
-        name: 'Jane Smith',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-    {
-        id: 3,
-        name: 'Jim Beam',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-    {
-        id: 4,
-        name: 'John Doe',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-    {
-        id: 5,
-        name: 'John Doe',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-    {
-        id: 6,
-        name: 'John Doe',
-        position: 'Software Engineer',
-        office: 'New York',
-        age: 30,
-        startDate: '2021-01-01',
-        salary: 100000,
-    },
-];
