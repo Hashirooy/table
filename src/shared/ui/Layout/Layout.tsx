@@ -3,10 +3,10 @@ import { MainContent } from '../MainContent/MainContent'
 import { Sidebar } from '../Sidebar/Sidebar'
 import styles from './Layout.module.scss'
 import logo from '../../assets/Icons/logo.svg';
-import { Table } from '../Table/Table';
 import { useEffect, useState } from 'react';
 import { AccountBar } from '../../../widgets/AccountBar/Accountbar';
 import { Button } from '../Button/Button';
+import { AppRouter } from '../../../app/providers/router';
 
 export const Layout = () => {
     const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -54,10 +54,7 @@ export const Layout = () => {
                         <AccountBar text="John Doe" avatar="https://via.placeholder.com/150"/>
                 </div>}
             <MainContent>
-                <div className={styles.mainContentTitle}>
-                    <h1>Data Tables</h1>
-                </div>
-                <Table/>
+                <AppRouter />
             </MainContent>
         
         </div>

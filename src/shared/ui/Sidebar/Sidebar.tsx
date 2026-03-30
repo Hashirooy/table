@@ -28,7 +28,7 @@ export const Sidebar = (_props: SidebarProps) => {
     {
       text: 'Tasks',
       icon: 'src/shared/assets/Icons/tasks.svg',
-      to: '/tsks',
+      to: '/tasks',
       path: '/tasks',
       authOnly: false,
     }
