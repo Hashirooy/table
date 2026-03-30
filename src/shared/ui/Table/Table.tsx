@@ -3,7 +3,8 @@ import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import cls from './Table.module.scss';
 import { Select } from '../Select/Select';
-import type { User } from '../../../entities/User/model/types/UserSchema';
+import type { User } from '../../../entities/User/model/types/userSchema';
+
 
 export interface TableColumn {
     id: number;
@@ -24,14 +25,15 @@ export interface TableRow {
 
 interface TableProps {
     users: User[];
-    tableType: 'users' | 'tasks';
+    tableType: 'users' | 'orders';
 }
 
 export const Table = ({ users, tableType }: TableProps) => {
     const [search, setSearch] = useState('');
     const [showEntries, setShowEntries] = useState('10');
-    return (
-        <div className={cls.tableContainer}>
+    return ( 
+    <>
+        {tableType === 'users' && <div className={cls.tableContainer}>
             <div className={cls.tableTitle}>
                 <h3>Table</h3>
             </div>
@@ -46,7 +48,7 @@ export const Table = ({ users, tableType }: TableProps) => {
             <table className={cls.table}>
                 <thead className={cls.tableHead}>
                     <tr className={cls.tableRow}>
-                        {tableColumns.map((col) => (
+                        {tableColumnsUsers.map((col) => (
                             <th key={col.id} className={cls.tableCell} scope="col">
                                 {col.name}
                             </th>
@@ -54,7 +56,7 @@ export const Table = ({ users, tableType }: TableProps) => {
                     </tr>
                 </thead>
                 <tbody className={cls.tableBody}>
-                    {users.map((row) => (
+                    {users ? users.map((row) => (
                         <tr key={row.id} className={cls.tableRow}>
                             <td className={cls.tableCell}>{row.name}</td>
                             <td className={cls.tableCell}>{row.email}</td>
@@ -63,20 +65,21 @@ export const Table = ({ users, tableType }: TableProps) => {
                             <td className={cls.tableCell}>{row.date}</td>
                             <td className={cls.tableCell}>{row.status}</td>
                         </tr>
-                    ))}
+                    )) : <tr><td colSpan={6} className={cls.tableCell}>No data</td></tr>}
                 </tbody>
             </table>
-        </div>
+        </div>}
+        </>
     );
 };
 
 
-export const tableColumns: TableColumn[] = [
+export const tableColumnsUsers: TableColumn[] = [
     { id: 1, name: 'User', description: 'Table 1 description' },
-    { id: 2, name: 'Position', description: 'Table 2 description' },
+    { id: 2, name: 'Email', description: 'Table 2 description' },
     { id: 3, name: 'Office', description: 'Table 3 description' },
-    { id: 4, name: 'Age', description: 'Table 4 description' },
+    { id: 4, name: 'Role', description: 'Table 4 description' },
     { id: 5, name: 'Start date', description: 'Table 5 description' },
-    { id: 6, name: 'Salary', description: 'Table 6 description' },
+    { id: 6, name: 'Status', description: 'Table 6 description' },
 ];
 

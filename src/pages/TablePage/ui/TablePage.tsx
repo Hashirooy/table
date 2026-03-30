@@ -23,6 +23,7 @@ const TablePage = () => {
         return <div>Error: {error}</div>;
     }
 
+
     return (<Table users={users} tableType="users" />);
 }
 

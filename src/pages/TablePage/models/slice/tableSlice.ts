@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit/react";
 import type { TableSchema } from "../types/tableSchema";
-import type { User } from "../../../../entities/User/model/types/UserSchema";
+import type { User } from "../../../../entities/User/model/types/userSchema";
 import { fetchAllUsers } from "../services/fechAllUsers";
 
 const initialState: TableSchema = {

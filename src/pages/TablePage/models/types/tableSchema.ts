@@ -1,4 +1,4 @@
-import type { User } from "../../../../entities/User/model/types/UserSchema";
+import type { User } from "../../../../entities/User/model/types/userSchema";
 
 export interface TableSchema {
     users: User[];
