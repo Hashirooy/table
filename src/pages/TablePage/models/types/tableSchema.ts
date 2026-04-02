@@ -1,7 +1,8 @@
 import type { User } from "../../../../entities/User/model/types/userSchema";
 
-export interface TableSchema {
-    users: User[];
-    isLoading?: boolean;
-    error?: string;
+// Если это схема общей таблицы, то это shared
+export interface Table {
+  users: User[];
+  isLoading?: boolean;
+  error?: string;
 }
