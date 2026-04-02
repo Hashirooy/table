@@ -4,6 +4,7 @@ import { Input } from '../Input/Input';
 import cls from './Table.module.scss';
 import { Select } from '../Select/Select';
 import type { User } from '../../../entities/User/model/types/userSchema';
+import { filteredUsersFunc } from '../../helper/serach';
 
 
 export interface TableColumn {
@@ -30,7 +31,26 @@ interface TableProps {
 
 export const Table = ({ users, tableType }: TableProps) => {
     const [search, setSearch] = useState('');
+    const [filteredUsers, setFilteredUsers] = useState(users);
     const [showEntries, setShowEntries] = useState('10');
+
+
+    const inputChangeHandler = (value: string) => {
+        setSearch(value);
+        if(search === ''){
+            setFilteredUsers(users);
+        }
+        setFilteredUsers( filteredUsersFunc(users, search));
+    };
+
+    const inputBlurHandler = (value: string) => {
+        setSearch(value);
+        if(search === ''){
+            setFilteredUsers(users);
+        }
+        setFilteredUsers( filteredUsersFunc(users, search));
+    };
+
     return ( 
     <>
         {tableType === 'users' && <div className={cls.tableContainer}>
@@ -42,7 +62,7 @@ export const Table = ({ users, tableType }: TableProps) => {
                     Show<Select options={[{ value: '10', content: '10' }, { value: '20', content: '20' }, { value: '30', content: '30' }]} value={showEntries} onChange={setShowEntries} /> entries
                 </div>
                 <div className={cls.tableOptionsRight}>
-                    <Input type="text" placeholder="Search" value={search} onChange={setSearch} />
+                    <Input type="text" placeholder="Search" value={search} onChange={inputChangeHandler} onBlur={inputBlurHandler} />
                 </div>
             </div>
             <table className={cls.table}>
@@ -56,7 +76,7 @@ export const Table = ({ users, tableType }: TableProps) => {
                     </tr>
                 </thead>
                 <tbody className={cls.tableBody}>
-                    {users ? users.map((row) => (
+                    {filteredUsers ? filteredUsers.map((row) => (
                         <tr key={row.id} className={cls.tableRow}>
                             <td className={cls.tableCell}>{row.name}</td>
                             <td className={cls.tableCell}>{row.email}</td>
