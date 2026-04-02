@@ -1,0 +1,164 @@
+{
+  "roles": [
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f001",
+      "name": "CLIENT",
+      "description": "Обычный клиент",
+      "permissions": ["read:own"],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f002",
+      "name": "ADMIN",
+      "description": "Администратор",
+      "permissions": ["read:all", "write:all", "delete:all"],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f003",
+      "name": "MODERATOR",
+      "description": "Модератор",
+      "permissions": ["read:all", "write:limited"],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f101",
+      "email": "anna.dev@example.com",
+      "password": "",
+      "isActivated": true,
+      "roles": ["64a0f0e0f0f0f0f0f0f0f002", "64a0f0e0f0f0f0f0f0f0f003"],
+      "name": "Анна Смирнова",
+      "status": "active",
+      "date": "2024-03-15T09:30:00.000Z",
+      "role": "Team Lead",
+      "department": "Разработка"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f102",
+      "email": "boris.qa@example.com",
+      "password": "",
+      "isActivated": true,
+      "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+      "name": "Борис Козлов",
+      "status": "away",
+      "date": "2024-06-01T12:00:00.000Z",
+      "role": "QA Engineer",
+      "department": "Качество"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f103",
+      "email": "chloe.pm@example.com",
+      "password": "",
+      "isActivated": false,
+      "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+      "name": "Хлоя Волкова",
+      "status": "inactive",
+      "date": "2024-02-20T08:00:00.000Z",
+      "role": "Product Manager",
+      "department": "Продукт"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f104",
+      "email": "dmitry.ops@example.com",
+      "password": "",
+      "isActivated": true,
+      "roles": ["64a0f0e0f0f0f0f0f0f0f002"],
+      "name": "Дмитрий Орлов",
+      "status": "active",
+      "date": "2024-08-10T14:45:00.000Z",
+      "role": "DevOps",
+      "department": "Инфраструктура"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f105",
+      "email": "elena.design@example.com",
+      "password": "",
+      "isActivated": true,
+      "roles": ["64a0f0e0f0f0f0f0f0f0f003"],
+      "name": "Елена Петрова",
+      "status": "active",
+      "date": "2024-09-05T11:15:00.000Z",
+      "role": "UX Designer",
+      "department": "Дизайн"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f201",
+      "title": "Рефакторинг таблицы пользователей",
+      "status": "in_progress",
+      "date": "2025-01-10T00:00:00.000Z",
+      "category": "frontend",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f101", "64a0f0e0f0f0f0f0f0f0f105"],
+      "priority": "high",
+      "description": "Унифицировать колонки и типы данных."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f202",
+      "title": "Покрытие e2e для авторизации",
+      "status": "todo",
+      "date": "2025-01-12T00:00:00.000Z",
+      "category": "qa",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f102"],
+      "priority": "medium",
+      "description": ""
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f203",
+      "title": "Документация API заказов",
+      "status": "done",
+      "date": "2024-12-01T00:00:00.000Z",
+      "category": "docs",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f103", "64a0f0e0f0f0f0f0f0f0f104"],
+      "priority": "low",
+      "description": "OpenAPI + примеры запросов."
+    }
+  ],
+  "orders": [
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f301",
+      "title": "Корпоративная лицензия",
+      "status": "paid",
+      "date": "2025-01-05T00:00:00.000Z",
+      "category": "subscription",
+      "customerName": "ООО «Ромашка»",
+      "totalAmount": 129990,
+      "currency": "RUB",
+      "notes": "Оплата по счёту"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f302",
+      "title": "Разовая поставка оборудования",
+      "status": "pending",
+      "date": "2025-01-08T00:00:00.000Z",
+      "category": "hardware",
+      "customerName": "ИП Иванов",
+      "totalAmount": 45200.5,
+      "currency": "USD",
+      "notes": ""
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f303",
+      "title": "Консалтинг по интеграции",
+      "status": "cancelled",
+      "date": "2024-11-20T00:00:00.000Z",
+      "category": "services",
+      "customerName": "АО «Техно»",
+      "totalAmount": 8000,
+      "currency": "EUR",
+      "notes": "Клиент отказался"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f401",
+      "refreshToken": "mock-refresh-token-demo-only",
+      "user": "64a0f0e0f0f0f0f0f0f0f101"
+    }
+  ]
+}
