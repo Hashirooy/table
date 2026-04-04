@@ -1,1 +1,7 @@
-@use './reset.module.scss'
+@use './reset.module.scss';
+
+:global(html),
+:global(body),
+:global(#root) {
+    height: 100%;
+}

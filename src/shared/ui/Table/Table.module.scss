@@ -1,7 +1,8 @@
 
 .tableContainer {
     width: 100%;
-    height: 100%;
+    overflow: visible;
+    max-height: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -40,6 +41,7 @@
 
 .table {
     width: 100%;
+    overflow: visible;
     border-collapse: collapse;
     table-layout: auto;
     background-color: #ffffff;

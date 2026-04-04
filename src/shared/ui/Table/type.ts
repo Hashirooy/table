@@ -1,0 +1,38 @@
+export const TableSchemaUsers = [
+  {
+    id: 1,
+    name: "User",
+    description: "Table 1 description",
+    route: "properties.name",
+  },
+  { id: 2, name: "Email", description: "Table 2 description", route: "properties.email" },
+  { id: 3, name: "Office", description: "Table 3 description", route: "properties.department" },
+  { id: 4, name: "Role", description: "Table 4 description", route: "properties.role" },
+  { id: 5, name: "Start date", description: "Table 5 description", route: "properties.date" },
+  { id: 6, name: "Status", description: "Table 6 description", route: "properties.status" },
+];
+
+
+
+export interface Order {
+  id: string;
+  properties: {
+    order: string;
+    customer: string;
+    product: string;
+    quantity: string;
+    price: string;
+    status: string;
+    name: string;
+
+  }
+}
+export const TableSchemaOrders = [
+  { id: 1, name: "Order", description: "Table 1 description", route: "properties.order" },
+  { id: 2, name: "Customer", description: "Table 2 description", route: "properties.customer" },
+  { id: 3, name: "Product", description: "Table 3 description", route: "properties.product" },
+  { id: 4, name: "Quantity", description: "Table 4 description", route: "properties.quantity" },
+  { id: 5, name: "Price", description: "Table 5 description", route: "properties.price" },
+  { id: 6, name: "Status", description: "Table 6 description", route: "properties.status" },
+  { id: 7, name: "Name", description: "Table 7 description", route: "properties.name" },
+];

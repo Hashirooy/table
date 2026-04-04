@@ -1,105 +1,80 @@
-import { useState } from 'react';
-import { Button } from '../Button/Button';
-import { Input } from '../Input/Input';
-import cls from './Table.module.scss';
-import { Select } from '../Select/Select';
-import type { User } from '../../../entities/User/model/types/userSchema';
-import { filteredUsersFunc } from '../../helper/serach';
-
+import { useState } from "react";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import cls from "./Table.module.scss";
+import { Select } from "../Select/Select";
+import { filteredFunc } from "../../helper/serach";
+import { TableContent } from "./TableContent";
+import { TableSchemaOrders, TableSchemaUsers } from "./type";
 
 export interface TableColumn {
-    id: number;
-    name: string;
-    description: string;
+  id: number;
+  name: string;
+  description: string;
 }
 
 export interface TableRow {
-    id: number;
-    name: string;
-    position: string;
-    office: string;
-    age: number;
-    startDate: string;
-    salary: number;
+  id: number;
+  name: string;
+  position: string;
+  office: string;
+  age: number;
+  startDate: string;
+  salary: number;
 }
-
 
 interface TableProps {
-    users: User[];
-    tableType: 'users' | 'orders';
+  data: {}[];
+  tableSchema: typeof TableSchemaUsers | typeof TableSchemaOrders;
 }
 
-export const Table = ({ users, tableType }: TableProps) => {
-    const [search, setSearch] = useState('');
-    const [filteredUsers, setFilteredUsers] = useState(users);
-    const [showEntries, setShowEntries] = useState('10');
+export const Table = (props: TableProps) => {
+  const { data, tableSchema } = props;
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+  const [showEntries, setShowEntries] = useState("10");
 
+  const inputChangeHandler = (value: string) => {
+    setSearch(value);
+    if (search === "") {
+      setFilteredData(data);
+    }
+    setFilteredData(filteredFunc(data, value));
+  };
 
-    const inputChangeHandler = (value: string) => {
-        setSearch(value);
-        if(search === ''){
-            setFilteredUsers(users);
-        }
-        setFilteredUsers( filteredUsersFunc(users, search));
-    };
-
-    const inputBlurHandler = (value: string) => {
-        setSearch(value);
-        if(search === ''){
-            setFilteredUsers(users);
-        }
-        setFilteredUsers( filteredUsersFunc(users, search));
-    };
-
-    return ( 
+  return (
     <>
-        {tableType === 'users' && <div className={cls.tableContainer}>
-            <div className={cls.tableTitle}>
-                <h3>Table</h3>
-            </div>
-            <div className={cls.tableOptions}>
-                <div className={cls.tableOptionsLeft}>
-                    Show<Select options={[{ value: '10', content: '10' }, { value: '20', content: '20' }, { value: '30', content: '30' }]} value={showEntries} onChange={setShowEntries} /> entries
-                </div>
-                <div className={cls.tableOptionsRight}>
-                    <Input type="text" placeholder="Search" value={search} onChange={inputChangeHandler} onBlur={inputBlurHandler} />
-                </div>
-            </div>
-            <table className={cls.table}>
-                <thead className={cls.tableHead}>
-                    <tr className={cls.tableRow}>
-                        {tableColumnsUsers.map((col) => (
-                            <th key={col.id} className={cls.tableCell} scope="col">
-                                {col.name}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody className={cls.tableBody}>
-                    {filteredUsers ? filteredUsers.map((row) => (
-                        <tr key={row.id} className={cls.tableRow}>
-                            <td className={cls.tableCell}>{row.name}</td>
-                            <td className={cls.tableCell}>{row.email}</td>
-                            <td className={cls.tableCell}>{row.department}</td>
-                            <td className={cls.tableCell}>{row.role}</td>
-                            <td className={cls.tableCell}>{row.date}</td>
-                            <td className={cls.tableCell}>{row.status}</td>
-                        </tr>
-                    )) : <tr><td colSpan={6} className={cls.tableCell}>No data</td></tr>}
-                </tbody>
-            </table>
-        </div>}
-        </>
-    );
+      <div className={cls.tableContainer}>
+        <div className={cls.tableTitle}>
+          <h3>Table</h3>
+        </div>
+        <div className={cls.tableOptions}>
+          <div className={cls.tableOptionsLeft}>
+            Show
+            <Select
+              options={[
+                { value: "10", content: "10" },
+                { value: "20", content: "20" },
+                { value: "30", content: "30" },
+              ]}
+              value={showEntries}
+              onChange={setShowEntries}
+            />{" "}
+            entries
+          </div>
+          <div className={cls.tableOptionsRight}>
+            <Input
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={inputChangeHandler}
+            />
+          </div>
+        </div>
+        <table className={cls.table}>
+          <TableContent data={filteredData} tableSchema={tableSchema} />
+        </table>
+      </div>
+    </>
+  );
 };
-
-
-export const tableColumnsUsers: TableColumn[] = [
-    { id: 1, name: 'User', description: 'Table 1 description' },
-    { id: 2, name: 'Email', description: 'Table 2 description' },
-    { id: 3, name: 'Office', description: 'Table 3 description' },
-    { id: 4, name: 'Role', description: 'Table 4 description' },
-    { id: 5, name: 'Start date', description: 'Table 5 description' },
-    { id: 6, name: 'Status', description: 'Table 6 description' },
-];
-
