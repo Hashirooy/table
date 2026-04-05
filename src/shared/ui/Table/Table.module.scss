@@ -1,79 +1,84 @@
-
 .tableContainer {
-    width: 100%;
-    overflow: visible;
-    max-height: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
+  width: 100%;
+  overflow: visible;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
 
-    .tableTitle {
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        margin-right: -20px;
-        min-height: 40px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0 0 20px 20px;
-        background-color: #ffffff;
-        margin-bottom: 25px;
-        border-bottom: 1px solid #e0e0e0;
-    }
+  .tableTitle {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    min-height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 20px 20px;
+    background-color: #ffffff;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
+  }
 }
 
 .tableOptions {
-    padding: 15px 12px 15px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px 12px 0 0;
+  padding: 15px 12px 15px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px 12px 0 0;
 }
 
-
 .table {
-    width: 100%;
-    overflow: visible;
-    border-collapse: collapse;
-    table-layout: auto;
-    background-color: #ffffff;
+  width: 100%;
+  overflow: visible;
+  border-collapse: collapse;
+  table-layout: auto;
+  background-color: #ffffff;
 }
 
 .tableHead {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .tableBody {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .tableRow {
-    border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
 
 .tableCell {
-    padding: 15px 12px;
-    border: 1px solid #e0e0e0;
-    text-align: left;
-    vertical-align: middle;
+  padding: 15px 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .tableHead .tableCell {
-    font-weight: 600;
-    color: #251d1d;
+  font-weight: 600;
+  color: #251d1d;
 }
 
-.tableOptionsLeft{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
+.tableOptionsLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.tableFilter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
 }

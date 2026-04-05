@@ -5,7 +5,12 @@ import cls from "./Table.module.scss";
 import { Select } from "../Select/Select";
 import { filteredFunc } from "../../helper/serach";
 import { TableContent } from "./TableContent";
-import { TableSchemaOrders, TableSchemaUsers } from "./type";
+import {
+  tableFilterOptions,
+  TableSchemaOrders,
+  TableSchemaUsers,
+} from "./type";
+import { filteredByStatusFunc } from "../../helper/filter";
 
 export interface TableColumn {
   id: number;
@@ -33,6 +38,7 @@ export const Table = (props: TableProps) => {
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState(data);
   const [showEntries, setShowEntries] = useState("10");
+  const [statusFilter, setStatusFilter] = useState("");
 
   const inputChangeHandler = (value: string) => {
     setSearch(value);
@@ -40,6 +46,19 @@ export const Table = (props: TableProps) => {
       setFilteredData(data);
     }
     setFilteredData(filteredFunc(data, value));
+  };
+
+  const statusFilterChangeHandler = (value: string) => {
+    setStatusFilter(value);
+    if (statusFilter === "") {
+      setFilteredData(data);
+    }
+    setFilteredData(filteredByStatusFunc(data, value));
+  };
+
+  const clearStatusFilterHandler = () => {
+    setStatusFilter("");
+    setFilteredData(data);
   };
 
   return (
@@ -61,6 +80,26 @@ export const Table = (props: TableProps) => {
               onChange={setShowEntries}
             />{" "}
             entries
+            <div className={cls.tableFilter}>
+              Filter by:
+              <Select
+                options={
+                  tableFilterOptions[
+                    tableSchema === TableSchemaUsers ? "users" : "orders"
+                  ]
+                }
+                value={statusFilter == "" ? "" : statusFilter}
+                onChange={statusFilterChangeHandler}
+              />
+              <Button
+                onClick={clearStatusFilterHandler}
+                size="medium"
+                theme="primary"
+                circle={false}
+              >
+                Clear
+              </Button>
+            </div>
           </div>
           <div className={cls.tableOptionsRight}>
             <Input
