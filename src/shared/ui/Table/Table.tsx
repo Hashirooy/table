@@ -9,8 +9,12 @@ import {
   tableFilterOptions,
   TableSchemaOrders,
   TableSchemaUsers,
+  type Order,
+  type SortColumn,
 } from "./type";
 import { filteredByStatusFunc } from "../../helper/filter";
+import { sortFunc } from "../../helper/sort";
+import type { User } from "../../../entities/User/model/types/userSchema";
 
 export interface TableColumn {
   id: number;
@@ -39,6 +43,7 @@ export const Table = (props: TableProps) => {
   const [filteredData, setFilteredData] = useState(data);
   const [showEntries, setShowEntries] = useState("10");
   const [statusFilter, setStatusFilter] = useState("");
+  const [sortColumn, setSortColumn] = useState<SortColumn>("asc");
 
   const inputChangeHandler = (value: string) => {
     setSearch(value);
@@ -59,6 +64,12 @@ export const Table = (props: TableProps) => {
   const clearStatusFilterHandler = () => {
     setStatusFilter("");
     setFilteredData(data);
+  };
+
+  const sortColumnOnClick = (column: string) => {
+    setSortColumn((prev) => (prev === "asc" ? "desc" : "asc"));
+    console.log(column);
+    setFilteredData(sortFunc(data, column, sortColumn));
   };
 
   return (
@@ -111,7 +122,11 @@ export const Table = (props: TableProps) => {
           </div>
         </div>
         <table className={cls.table}>
-          <TableContent data={filteredData} tableSchema={tableSchema} />
+          <TableContent
+            data={filteredData}
+            tableSchema={tableSchema}
+            onClick={sortColumnOnClick}
+          />
         </table>
       </div>
     </>

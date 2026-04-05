@@ -14,6 +14,8 @@ export interface Order {
   };
 }
 
+export type SortColumn = "asc" | "desc";
+
 export const tableFilterOptions: {
   users: SelectOption[];
   orders: SelectOption[];
