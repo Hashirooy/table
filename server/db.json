@@ -23,6 +23,22 @@
       "permissions": ["read:all", "write:limited"],
       "createdAt": "2024-01-01T10:00:00.000Z",
       "updatedAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f004",
+      "name": "SUPPORT",
+      "description": "Техподдержка",
+      "permissions": ["read:all", "write:tickets"],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f005",
+      "name": "VIEWER",
+      "description": "Только просмотр",
+      "permissions": ["read:limited"],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
     }
   ],
   "users": [
@@ -96,6 +112,174 @@
       "role": "UX Designer",
       "department": "Дизайн"
       }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f106",
+      "properties": {
+        "email": "fedor.backend@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Фёдор Николаев",
+        "status": "active",
+        "date": "2024-04-22T10:20:00.000Z",
+        "role": "Backend Developer",
+        "department": "Разработка"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f107",
+      "properties": {
+        "email": "galina.hr@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f005"],
+        "name": "Галина Морозова",
+        "status": "active",
+        "date": "2024-05-11T13:00:00.000Z",
+        "role": "HR Manager",
+        "department": "HR"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f108",
+      "properties": {
+        "email": "igor.data@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Игорь Соколов",
+        "status": "away",
+        "date": "2024-07-03T09:00:00.000Z",
+        "role": "Data Analyst",
+        "department": "Аналитика"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f109",
+      "properties": {
+        "email": "julia.front@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Юлия Кузнецова",
+        "status": "active",
+        "date": "2024-10-01T08:30:00.000Z",
+        "role": "Frontend Developer",
+        "department": "Разработка"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10a",
+      "properties": {
+        "email": "konstantin.sec@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f002"],
+        "name": "Константин Белов",
+        "status": "active",
+        "date": "2024-11-18T16:00:00.000Z",
+        "role": "Security Engineer",
+        "department": "Инфраструктура"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10b",
+      "properties": {
+        "email": "larisa.content@example.com",
+        "password": "",
+        "isActivated": false,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Лариса Новикова",
+        "status": "inactive",
+        "date": "2024-12-05T12:00:00.000Z",
+        "role": "Content Manager",
+        "department": "Маркетинг"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10c",
+      "properties": {
+        "email": "mikhail.mobile@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Михаил Васильев",
+        "status": "active",
+        "date": "2025-01-08T07:45:00.000Z",
+        "role": "Mobile Developer",
+        "department": "Разработка"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10d",
+      "properties": {
+        "email": "natalia.finance@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f005"],
+        "name": "Наталья Фёдорова",
+        "status": "active",
+        "date": "2025-02-14T11:10:00.000Z",
+        "role": "Financial Analyst",
+        "department": "Финансы"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10e",
+      "properties": {
+        "email": "oleg.support@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f004"],
+        "name": "Олег Титов",
+        "status": "active",
+        "date": "2025-03-01T09:00:00.000Z",
+        "role": "Support Lead",
+        "department": "Поддержка"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f10f",
+      "properties": {
+        "email": "polina.arch@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f002", "64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Полина Захарова",
+        "status": "away",
+        "date": "2025-03-20T15:30:00.000Z",
+        "role": "Solution Architect",
+        "department": "Разработка"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f110",
+      "properties": {
+        "email": "roman.sales@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f001"],
+        "name": "Роман Егоров",
+        "status": "active",
+        "date": "2025-04-02T10:00:00.000Z",
+        "role": "Account Executive",
+        "department": "Продажи"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f111",
+      "properties": {
+        "email": "svetlana.legal@example.com",
+        "password": "",
+        "isActivated": true,
+        "roles": ["64a0f0e0f0f0f0f0f0f0f005"],
+        "name": "Светлана Андреева",
+        "status": "active",
+        "date": "2025-04-08T14:20:00.000Z",
+        "role": "Legal Counsel",
+        "department": "Юридический"
+      }
     }
   ],
   "tasks": [
@@ -128,6 +312,86 @@
       "assignee": ["64a0f0e0f0f0f0f0f0f0f103", "64a0f0e0f0f0f0f0f0f0f104"],
       "priority": "low",
       "description": "OpenAPI + примеры запросов."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f204",
+      "title": "Миграция на React 19",
+      "status": "todo",
+      "date": "2025-01-15T00:00:00.000Z",
+      "category": "frontend",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f101", "64a0f0e0f0f0f0f0f0f0f109"],
+      "priority": "high",
+      "description": "Обновить зависимости и прогнать регрессию."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f205",
+      "title": "Настройка алертов Grafana",
+      "status": "in_progress",
+      "date": "2025-01-18T00:00:00.000Z",
+      "category": "infra",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f104", "64a0f0e0f0f0f0f0f0f0f10a"],
+      "priority": "medium",
+      "description": "CPU, память, ошибки 5xx."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f206",
+      "title": "A/B тест лендинга",
+      "status": "todo",
+      "date": "2025-01-20T00:00:00.000Z",
+      "category": "marketing",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f10b", "64a0f0e0f0f0f0f0f0f0f105"],
+      "priority": "low",
+      "description": ""
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f207",
+      "title": "Оптимизация SQL-отчётов",
+      "status": "done",
+      "date": "2024-11-30T00:00:00.000Z",
+      "category": "backend",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f106", "64a0f0e0f0f0f0f0f0f0f108"],
+      "priority": "medium",
+      "description": "Индексы и материализованные представления."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f208",
+      "title": "Онбординг новых сотрудников в Confluence",
+      "status": "in_progress",
+      "date": "2025-02-01T00:00:00.000Z",
+      "category": "docs",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f107"],
+      "priority": "low",
+      "description": "Шаблоны и чек-листы."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f209",
+      "title": "Пентест внешнего периметра",
+      "status": "todo",
+      "date": "2025-02-10T00:00:00.000Z",
+      "category": "security",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f10a"],
+      "priority": "high",
+      "description": "Координация с подрядчиком."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f20a",
+      "title": "Релиз мобильного приложения 2.4",
+      "status": "todo",
+      "date": "2025-02-28T00:00:00.000Z",
+      "category": "mobile",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f10c", "64a0f0e0f0f0f0f0f0f0f102"],
+      "priority": "high",
+      "description": "Store review + staged rollout."
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f20b",
+      "title": "Сверка выручки за Q4",
+      "status": "done",
+      "date": "2025-01-05T00:00:00.000Z",
+      "category": "finance",
+      "assignee": ["64a0f0e0f0f0f0f0f0f0f10d"],
+      "priority": "medium",
+      "description": ""
     }
   ],
   "orders": [
@@ -165,6 +429,102 @@
         "price": "8000 EUR",
         "status": "cancelled",
         "name": "Заказ 3"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f304",
+      "properties": {
+        "order": "ORD-2025-022 / Расширение лицензии",
+        "customer": "ЗАО «Север»",
+        "product": "Доп. пользователи ×50",
+        "quantity": "50",
+        "price": "249000 RUB",
+        "status": "paid",
+        "name": "Заказ 4"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f305",
+      "properties": {
+        "order": "ORD-2025-031 / Облачное хранилище",
+        "customer": "ООО «Дельта»",
+        "product": "S3-совместимое хранилище, 10 ТБ/год",
+        "quantity": "1",
+        "price": "18900 USD",
+        "status": "pending",
+        "name": "Заказ 5"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f306",
+      "properties": {
+        "order": "ORD-2025-038 / Обучение команды",
+        "customer": "ИП Семёнов",
+        "product": "Воркшоп по безопасности, 2 дня",
+        "quantity": "2",
+        "price": "120000 RUB",
+        "status": "paid",
+        "name": "Заказ 6"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f307",
+      "properties": {
+        "order": "ORD-2024-112 / Лицензии ПО",
+        "customer": "НКО «Помощь»",
+        "product": "Офисный пакет, 25 мест",
+        "quantity": "25",
+        "price": "4500 EUR",
+        "status": "cancelled",
+        "name": "Заказ 7"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f308",
+      "properties": {
+        "order": "ORD-2025-045 / Аудит кода",
+        "customer": "ООО «СтартапЛаб»",
+        "product": "Code review + отчёт",
+        "quantity": "1",
+        "price": "95000 RUB",
+        "status": "pending",
+        "name": "Заказ 8"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f309",
+      "properties": {
+        "order": "ORD-2025-051 / Резервное копирование",
+        "customer": "АО «МегаРитейл»",
+        "product": "BaaS enterprise, квартал",
+        "quantity": "1",
+        "price": "780000 RUB",
+        "status": "paid",
+        "name": "Заказ 9"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f30a",
+      "properties": {
+        "order": "ORD-2025-060 / Поставка мониторов",
+        "customer": "ООО «ОфисПлюс»",
+        "product": "27\" IPS, модель Pro-27",
+        "quantity": "12",
+        "price": "286800 RUB",
+        "status": "pending",
+        "name": "Заказ 10"
+      }
+    },
+    {
+      "id": "64a0f0e0f0f0f0f0f0f0f30b",
+      "properties": {
+        "order": "ORD-2025-067 / Интеграция CRM",
+        "customer": "ООО «ЛидГен»",
+        "product": "Связка CRM ↔ биллинг",
+        "quantity": "1",
+        "price": "4200 GBP",
+        "status": "paid",
+        "name": "Заказ 11"
       }
     }
   ],

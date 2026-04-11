@@ -36,9 +36,7 @@ export const TableContent = (props: TableContentProps) => {
                 }
                 alt=""
                 onClick={() => {
-                  setOpenColumnId((prev) =>
-                    prev === col.id ? null : col.id,
-                  );
+                  setOpenColumnId((prev) => (prev === col.id ? null : col.id));
                   handleSortColumn(col.name);
                 }}
                 role="button"

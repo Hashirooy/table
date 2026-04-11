@@ -16,6 +16,7 @@ import {
   type Order,
 } from "../../../shared/ui/Table/type";
 import styles from "./TablePage.module.scss";
+import { useTableQuery } from "../../../shared/helper/hooks/useTableQuery";
 
 const TablePage = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +24,8 @@ const TablePage = () => {
   const error = useAppSelector(getTableError);
   const users = useAppSelector(getTableUsers);
   const [orders, setOrders] = useState<Order[]>([]);
+  const table = useTableQuery("table_1");
+  const table2 = useTableQuery("table_2");
 
   useEffect(() => {
     dispatch(fetchAllUsers());
@@ -47,8 +50,8 @@ const TablePage = () => {
 
   return (
     <div className={styles.tablePage}>
-      <Table data={users} tableSchema={TableSchemaUsers} />
-      <Table data={orders} tableSchema={TableSchemaOrders} />
+      <Table data={users} tableSchema={TableSchemaUsers} table={table} />
+      <Table data={orders} tableSchema={TableSchemaOrders} table={table2} />
     </div>
   );
 };
