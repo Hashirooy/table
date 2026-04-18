@@ -1,4 +1,45 @@
 import type { User } from "../../../entities/User/model/types/userSchema";
+import type { SelectOption } from "../Select/Select";
+
+export interface Order {
+  id: string;
+  properties: {
+    order: string;
+    customer: string;
+    product: string;
+    quantity: string;
+    price: string;
+    status: string;
+    name: string;
+  };
+}
+
+export type SortColumn = "asc" | "desc";
+
+export const tableFilterOptions: {
+  users: SelectOption[];
+  orders: SelectOption[];
+  tasks: SelectOption[];
+} = {
+  users: [
+    { value: "active", content: "Active" },
+    { value: "away", content: "Away" },
+    { value: "inactive", content: "Inactive" },
+    { value: "", content: "All" },
+  ],
+  orders: [
+    { value: "paid", content: "Paid" },
+    { value: "pending", content: "Pending" },
+    { value: "cancelled", content: "Cancelled" },
+    { value: "", content: "All" },
+  ],
+  tasks: [
+    { value: "in_progress", content: "In progress" },
+    { value: "todo", content: "Todo" },
+    { value: "done", content: "Done" },
+    { value: "", content: "All" },
+  ],
+};
 
 export const TableSchemaUsers = [
   {
@@ -39,18 +80,6 @@ export const TableSchemaUsers = [
   },
 ];
 
-export interface Order {
-  id: string;
-  properties: {
-    order: string;
-    customer: string;
-    product: string;
-    quantity: string;
-    price: string;
-    status: string;
-    name: string;
-  };
-}
 export const TableSchemaOrders = [
   {
     id: 1,
