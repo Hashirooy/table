@@ -1,6 +1,11 @@
-import type { Order, SortColumn } from "../ui/Table/type";
+import type { Order, SortColumn } from "../../ui/Table/type";
+import type { User } from "../../../entities/User/model/types/userSchema";
 
-export const sortFunc = (arr: {}[], column: string, sortColumn: SortColumn) => {
+export const sortFunc = (
+  arr: User[] | Order[],
+  column: string,
+  sortColumn: SortColumn,
+) => {
   const q = column.toString().toLowerCase();
 
   if (sortColumn === "asc") {
