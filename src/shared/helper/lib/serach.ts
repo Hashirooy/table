@@ -1,6 +1,8 @@
-import { isOrder, isUser } from "../ui/Table/type";
+import { isOrder, isUser } from "../../ui/Table/type";
+import type { Order } from "../../ui/Table/type";
+import type { User } from "../../../entities/User/model/types/userSchema";
 
-export const filteredFunc = (arr: {}[], search: string) => {
+export const filteredFunc = (arr: User[] | Order[], search: string) => {
   const q = search.toLowerCase();
   if (!search) {
     return arr;

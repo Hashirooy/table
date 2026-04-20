@@ -2,15 +2,15 @@ import type { User } from "../../../entities/User/model/types/userSchema";
 import type { SelectOption } from "../Select/Select";
 
 export interface Order {
-  id: string;
-  properties: {
+  id?: string;
+  properties?: {
     order: string;
-    customer: string;
-    product: string;
-    quantity: string;
-    price: string;
-    status: string;
-    name: string;
+    customer?: string;
+    product?: string;
+    quantity?: string;
+    price?: string;
+    status?: string;
+    name?: string;
   };
 }
 

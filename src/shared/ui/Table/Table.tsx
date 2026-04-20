@@ -3,7 +3,7 @@ import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import cls from "./Table.module.scss";
 import { Select } from "../Select/Select";
-import { filteredFunc } from "../../helper/serach";
+import { filteredFunc } from "../../helper/lib/serach";
 import { TableContent } from "./TableContent";
 import {
   tableFilterOptions,
@@ -12,12 +12,13 @@ import {
   type Order,
   type SortColumn,
 } from "./type";
-import { filteredByStatusFunc } from "../../helper/filter";
-import { sortFunc } from "../../helper/sort";
+import { filteredByStatusFunc } from "../../helper/lib/filter";
+import { sortFunc } from "../../helper/lib/sort";
 
 import { useDebounce } from "../../helper/hooks/useDebounce";
 import { Pagination } from "../Pagination/Pagination";
 import type { useTableQuery } from "../../helper/hooks/useTableQuery";
+import type { User } from "../../../entities/User/model/types/userSchema";
 
 export interface TableColumn {
   id: number;
@@ -36,7 +37,7 @@ export interface TableRow {
 }
 
 interface TableProps {
-  data: {}[];
+  data: User[] | Order[];
   tableSchema: typeof TableSchemaUsers | typeof TableSchemaOrders;
   table: ReturnType<typeof useTableQuery>;
 }
