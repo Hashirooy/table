@@ -1,29 +1,29 @@
-import type { Order, SortColumn } from "../../ui/Table/type";
-import type { User } from "../../../entities/User/model/types/userSchema";
+import type {SortColumn, TableData } from "../../ui/Table/type";
+
 
 export const sortFunc = (
-  arr: User[] | Order[],
+  arr: TableData[],
   column: string,
   sortColumn: SortColumn,
 ) => {
   const q = column.toString().toLowerCase();
 
   if (sortColumn === "asc") {
-    return [...arr].sort((a: any, b: any) => {
-      if (a.properties[q] === undefined || b.properties[q] === undefined) {
+    return [...arr].sort((a: TableData, b: TableData) => {
+      if (!a.properties || !b.properties || (a.properties as Record<string, string>)[q] === undefined || (b.properties as Record<string, string>)[q] === undefined) {
         return 0;
       }
-      return (a.properties[q] as string).localeCompare(
-        b.properties[q] as string,
+      return ((a.properties as Record<string, string>)[q]).localeCompare(
+        (b.properties as Record<string, string>)[q],
       );
     });
   } else {
-    return [...arr].sort((a: any, b: any) => {
-      if (a.properties[q] === undefined || b.properties[q] === undefined) {
+    return [...arr].sort((a: TableData, b: TableData) => {
+      if (!a.properties || !b.properties || (a.properties as Record<string, string>)[q] === undefined || (b.properties as Record<string, string>)[q] === undefined) {
         return 0;
       }
-      return (b.properties[q] as string).localeCompare(
-        a.properties[q] as string,
+      return ((b.properties as Record<string, string>)[q]).localeCompare(
+        (a.properties as Record<string, string>)[q],
       );
     });
   }

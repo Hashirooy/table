@@ -9,8 +9,8 @@ import {
   tableFilterOptions,
   TableSchemaOrders,
   TableSchemaUsers,
-  type Order,
   type SortColumn,
+  type TableData,
 } from "./type";
 import { filteredByStatusFunc } from "../../helper/lib/filter";
 import { sortFunc } from "../../helper/lib/sort";
@@ -18,28 +18,13 @@ import { sortFunc } from "../../helper/lib/sort";
 import { useDebounce } from "../../helper/hooks/useDebounce";
 import { Pagination } from "../Pagination/Pagination";
 import type { useTableQuery } from "../../helper/hooks/useTableQuery";
-import type { User } from "../../../entities/User/model/types/userSchema";
 
-export interface TableColumn {
-  id: number;
-  name: string;
-  description: string;
-}
-
-export interface TableRow {
-  id: number;
-  name: string;
-  position: string;
-  office: string;
-  age: number;
-  startDate: string;
-  salary: number;
-}
 
 interface TableProps {
-  data: User[] | Order[];
+  data: TableData[];
   tableSchema: typeof TableSchemaUsers | typeof TableSchemaOrders;
   table: ReturnType<typeof useTableQuery>;
+  isLoading?: boolean;
 }
 
 const PAGE_SIZE = "5";
@@ -47,17 +32,17 @@ const PAGE_SIZE = "5";
 export const Table = (props: TableProps) => {
   const { data, tableSchema, table } = props;
   const [search, setSearch] = useState(
-    (table.get("search", "") as string) || "",
+    (table.get("search", "")) || "",
   );
   const [filteredData, setFilteredData] = useState(data);
   const [statusFilter, setStatusFilter] = useState(
-    (table.get("statusFilter", "") as string) || "",
+    (table.get("statusFilter", "")) || "",
   );
   const [sortColumn, setSortColumn] = useState<SortColumn>(
     (table.get("sortColumn", "asc") as SortColumn) || "asc",
   );
   const [page, setPage] = useState(
-    Number(table.get("page", "1") as string) || 1,
+    Number(table.get("page", "1")) || 1,
   );
   const [pageSize, setPageSize] = useState<number>(Number(PAGE_SIZE));
 
@@ -81,7 +66,7 @@ export const Table = (props: TableProps) => {
     }
     setFilteredData(filteredFunc(data, value));
     table.set({ search: value });
-  }, 500);
+  }, 50);
 
   const statusFilterChangeHandler = (value: string) => {
     setStatusFilter(value);
@@ -106,14 +91,14 @@ export const Table = (props: TableProps) => {
   };
 
   useEffect(() => {
-    const urlSearch = (table.get("search", "") as string) || "";
-    const urlStatus = (table.get("statusFilter", "") as string) || "";
+    const urlSearch = (table.get("search", "")) || "";
+    const urlStatus = (table.get("statusFilter", "") ) || "";
     const urlOrderRaw =
-      (table.get("sortOrder", "") as string) ||
-      (table.get("sortColumn", "") as string) ||
+      (table.get("sortOrder", "") ) ||
+      (table.get("sortColumn", "")) ||
       "asc";
     const urlSortOrder: SortColumn = urlOrderRaw === "desc" ? "desc" : "asc";
-    const urlSortField = (table.get("sortField", "") as string) || "";
+    const urlSortField = (table.get("sortField", "") ) || "";
     const urlPage = Number(table.get("page", "1")) || 1;
 
     setSearch(urlSearch);
@@ -127,6 +112,22 @@ export const Table = (props: TableProps) => {
     setFilteredData(next);
     setPage(urlPage);
   }, [data, table.params.toString()]);
+
+  if (!data.length) {
+    return (
+      <div className={cls.tableContainer}>
+        <p>No data found</p>
+      </div>
+    );
+  }
+
+  if (props.isLoading) {
+    return (
+      <div className={cls.tableContainer}>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -1,17 +1,41 @@
-import type { User } from "../../../entities/User/model/types/userSchema";
 import type { SelectOption } from "../Select/Select";
 
-export interface Order {
+
+
+
+export type TableData = {
+  id?:string;
+  properties?: Properties | undefined
+}
+
+export type Properties = {
+  name?: string;
+  status?: string;
+}
+
+export type Order = TableData & {
   id?: string;
-  properties?: {
+  properties?: Properties & {
     order: string;
     customer?: string;
     product?: string;
     quantity?: string;
     price?: string;
-    status?: string;
-    name?: string;
-  };
+  }
+}
+
+export type User = TableData &{
+  id?: string;
+  properties?: Properties & {
+    email?: string;
+    password?: string;
+    isActivated?: boolean;
+    roles?: string[];
+    department?: string;
+    date?: string;
+    role?: string;
+    
+  }
 }
 
 export type SortColumn = "asc" | "desc";
@@ -125,23 +149,4 @@ export const TableSchemaOrders = [
   },
 ];
 
-export function isUser(x: unknown): x is User {
-  if (x === null || typeof x !== "object") return false;
-  const o = x as Record<string, unknown>;
-  const p = o.properties;
-  if (p === null || typeof p !== "object") return false;
-  const props = p as Record<string, unknown>;
-  return typeof props.email === "string" && typeof props.name === "string";
-}
-export function isOrder(x: unknown): x is Order {
-  if (x === null || typeof x !== "object") return false;
-  const o = x as Record<string, unknown>;
-  const p = o.properties;
-  if (p === null || typeof p !== "object") return false;
-  const props = p as Record<string, unknown>;
-  return (
-    typeof props.order === "string" &&
-    typeof props.customer === "string" &&
-    typeof props.product === "string"
-  );
-}
+

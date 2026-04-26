@@ -1,11 +1,11 @@
-import type { User } from "../../../entities/User/model/types/userSchema";
-import type { Order } from "../../ui/Table/type";
+import type { TableData } from "../../ui/Table/type";
 
-export const filteredByStatusFunc = (arr: User[] | Order[], status: string) => {
+
+export const filteredByStatusFunc = (arr: TableData[], status: string) => {
   if (status === "") {
     return arr;
   }
-  return arr.filter((item: User | Order) => {
+  return arr.filter((item: TableData) => {
     return item.properties?.status === status;
   });
 };

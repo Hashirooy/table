@@ -50,8 +50,8 @@ const TablePage = () => {
 
   return (
     <div className={styles.tablePage}>
-      <Table data={users} tableSchema={TableSchemaUsers} table={table} />
-      <Table data={orders} tableSchema={TableSchemaOrders} table={table2} />
+      <Table data={users} tableSchema={TableSchemaUsers} table={table} isLoading={isLoading} />
+      <Table data={orders} tableSchema={TableSchemaOrders} table={table2} isLoading={isLoading} />
     </div>
   );
 };

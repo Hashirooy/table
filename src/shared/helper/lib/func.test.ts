@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { filteredFunc } from "./serach";
-import type { User } from "../../../entities/User/model/types/userSchema";
 import { sortFunc } from "./sort";
-import type { Order } from "../../ui/Table/type";
+import type { Order, User } from "../../ui/Table/type";
 import { filteredByStatusFunc } from "./filter";
 
 describe("filteredFunc", () => {
@@ -47,6 +46,7 @@ describe("filteredFunc", () => {
       email: "jane@example.com",
     });
   });
+
   it("Таблица заказов поиск по заказу", () => {
     const data: Order[] = [
       { properties: { order: "123", customer: "John", product: "Product 1" } },
@@ -59,18 +59,22 @@ describe("filteredFunc", () => {
       product: "Product 1",
     });
   });
+
   it("Таблица заказов поиск по customer", () => {
     const data: Order[] = [
       { properties: { order: "123", customer: "John", product: "Product 1" } },
       { properties: { order: "456", customer: "Jane", product: "Product 2" } },
     ];
+
     const result = filteredFunc(data, "Jane");
+
     expect(result[0].properties).toEqual({
       order: "456",
       customer: "Jane",
       product: "Product 2",
     });
   });
+
   it("Таблица заказов поиск по product", () => {
     const data: Order[] = [
       { properties: { order: "123", customer: "John", product: "Product 1" } },
@@ -189,3 +193,5 @@ describe("filteredByStatusFunc", () => {
     expect(result).toEqual(data);
   });
 });
+
+

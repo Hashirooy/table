@@ -1,17 +1,16 @@
 import cls from "./Table.module.scss";
 import ArrowIcon from "../../assets/Icons/arrow.svg";
-import { TableSchemaOrders, TableSchemaUsers } from "./type";
+import { TableSchemaOrders, TableSchemaUsers, type TableData } from "./type";
 import { useState } from "react";
 
 interface TableContentProps {
-  data: {}[];
+  data: TableData[];
   tableSchema: typeof TableSchemaUsers | typeof TableSchemaOrders;
   onClick: (column: string) => void;
 }
 
 export const TableContent = (props: TableContentProps) => {
   const { data, tableSchema, onClick } = props;
-  /** Какая колонка показывает «развёрнутую» стрелку; только одна за раз */
   const [openColumnId, setOpenColumnId] = useState<number | null>(null);
 
   const getValueByPath = (obj: any, path: string) => {
@@ -57,15 +56,21 @@ export const TableContent = (props: TableContentProps) => {
       </thead>
       <tbody className={cls.tableBody}>
         {data.length ? (
-          data.map((item: any, index: number) => (
-            <tr key={index} className={cls.tableRow}>
-              {tableSchema.map((col: any) => (
-                <td key={col.id} className={cls.tableCell}>
-                  {getValueByPath(item, col.route)}
-                </td>
-              ))}
-            </tr>
-          ))
+          data.map((item: TableData, index: number) =>
+            item.properties ? (
+              <tr key={index} className={cls.tableRow}>
+                {tableSchema.map((col) => (
+                  <td key={col.id} className={cls.tableCell}>
+                    {getValueByPath(item, col.route)}
+                  </td>
+                ))}
+              </tr>
+            ) : (<tr>
+            <td colSpan={tableSchema.length} className={cls.tableCell}>
+              Data not matching schema
+            </td>
+          </tr>),
+          )
         ) : (
           <tr>
             <td colSpan={tableSchema.length} className={cls.tableCell}>

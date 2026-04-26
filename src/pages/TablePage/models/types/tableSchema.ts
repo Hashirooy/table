@@ -1,4 +1,20 @@
-import type { User } from "../../../../entities/User/model/types/userSchema";
+
+
+
+export interface User {
+  id?: string;
+  properties?: {
+    email?: string;
+    password?: string;
+    isActivated?: boolean;
+    roles?: string[];
+    name?: string;
+    department?: string;
+    date?: string;
+    role?: string;
+    status?: string;
+  };
+}
 
 export interface TableSchema {
     users: User[];

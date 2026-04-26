@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit/react";
-import type { User } from "../../../../entities/User/model/types/userSchema";
+import { type User } from "../types/tableSchema";
 
 export const fetchAllUsers = createAsyncThunk<User[], void>('table/fetchAllUsers', async (_, thunkAPI) => {
     try {
